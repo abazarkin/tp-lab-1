@@ -11,7 +11,9 @@ unsigned long findValue(unsigned int min, unsigned int max){
 			else
 				if(i == max)
 					flag = 1;
+		}
 		if(flag == 0)
 			value++;
+	}
 	return value;
 }
