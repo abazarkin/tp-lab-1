@@ -2,29 +2,19 @@
 
 
 bool checkPrime(unsigned int value){
-	int flag = 1;
-	for (int i = 2; i < value; i++){
-		if (value == 2)
-			return 1;
-		if (value % i == 0){
-			flag = 0;
-			return 0;
-		}
-	}
-	if (flag == 1)
-		return 1;
+	if(value == 1)
+		return false;
+	for(int i = 2; i < floor(sqrt(value)); i++)
+		if(value % i == 0)
+			return false;
+	return true;
 }	
 
 unsigned long long nPrime(unsigned n){
-	unsigned int value = 1;
-	int count = 0;
-	while(1){
-		if (checkPrime(value) == 1)
-			count++;
-		if (count == n)
-			return value;
-		value++;
-	}
+	n++;
+	while(!checkPrime(n))
+		n++;
+	return n;
 }
 
 unsigned long long nextPrime(unsigned long long value){
