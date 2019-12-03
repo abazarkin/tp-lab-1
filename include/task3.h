@@ -1,6 +1,6 @@
 #pragma once
 
 #include <stdio.h>
-#include <conio.h>
+#include <iostream>
 
 unsigned long long sumPrime(unsigned int hbound);

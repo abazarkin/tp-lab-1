@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdio.h>
-#include <conio.h>
+#include <iostream>
 
 
 bool checkPrime(unsigned int value);

@@ -1,6 +1,6 @@
 #include "task5.h"
-
 using namespace std;
+
 
 int main(){
 	char inp[] = "Not hard task";

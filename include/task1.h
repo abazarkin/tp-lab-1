@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdio.h>
-#include <conio.h>
+#include <iostream>
 
 
 unsigned long findValue(unsigned int min, unsigned int max);

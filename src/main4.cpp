@@ -1,6 +1,6 @@
 #includes "task4.h"
-
 using namespace std;
+
 
 int main(){
 	char num1[] = {"123456789"}
