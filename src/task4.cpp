@@ -3,39 +3,25 @@
 
 char *sum(char *x, char *y){
 	int len;
-	char *ans;
+	int summ = 0;
 	int len_x = strlen(x);
 	int len_y = strlen(y);
-
-	if (len_x > len_y){
+	if(len_x > len_y)
 		len = len_x;
-	}
-	else{
+	else
 		len = len_y;
+	char *sum = (char*)malloc((len + 1) * sizeof(char));
+	for(int i = 1; i <= len + 1; i++){
+		if(i <= len_x)
+			summ += (*(x + (len_x - i)) - '0');
+		if(i <= len_y)
+			summ += (*(y + (len_y - i)) - '0');
+		*(sum + len + 1 - i) = s % 10 + '0';
+		s /= 10;
 	}
-	int len_ans = len + 1;
-	ans = (char*)malloc((len_ans)*sizeof(char));
-	int term_x = 0;
-	int term_y = 0;
-	int sum_xy = 0;
-	for (int i = 0; i < (len_ans); i++){
-		term_x = 0; 
-		term_y = 0;
-		if (i < len_x){
-			term_x = (*(x + len_x - 1 - i) - '0');
-		}
-		if (i < len_y){
-			term_y = (*(y + len_y - 1 - i) - '0');
-		}
-		sum_xy = sum_xy + term_x + term_y;
-		ans[len_ans - 1 - i] = sum_xy % 10 + '0';
-		sum_xy = sum_xy / 10;
-	}
-	ans[len_ans] = '\0';
-	if (*ans == '0'){
-		for (int i = 0; i <= len_ans; i++){
-			*(ans + i) = *(ans + i + 1);
-		}
-	}
-	return ans;
+	*(sum + len + 1) = 0;
+	if(*(sum) == '0')
+		for(int i = 0; i <= len; i++)
+			*(sum + i) = *(sum + i + 1);
+	return sum;
 } 
