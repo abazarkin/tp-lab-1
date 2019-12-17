@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "task5.h"
 #include <iostream>
 using namespace std;
