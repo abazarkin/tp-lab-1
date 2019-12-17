@@ -3,17 +3,17 @@
 
 unsigned long findValue(unsigned int min, unsigned int max){
 	unsigned int value = 1;
-	int flag = 0;
-	while(flag == 0){
-		for(int i = min; i < max; i++){
-			if(value % i != 0)
+	bool flag = 1;
+	while(flag){
+		flag = 0;
+		for(int i = min; i <= max; i++){
+			if(value % i != 0){
+				flag = 1;
 				break;
-			else
-				if(i == max)
-					flag = 1;
+			}
+		value++;
 		}
-		if(flag == 0)
-			value++;
 	}
+	value--;
 	return value;
 }

@@ -1,30 +1,41 @@
 #include "task2.h"
-#include "math.h"
-
-
-bool checkPrime(unsigned int value){
-	if(value == 1)
+#include <math.h>
+bool checkPrime(unsigned int value)
+{
+	if ((value <= 0) || (value == 1))
 		return false;
-	for(int i = 2; i < floor(sqrt(value)); i++)
-		if(value % i == 0)
+	for (int i = 2; i < value; i++) {
+		if (value % i == 0)
 			return false;
+	}
 	return true;
-}	
-
-unsigned long long nPrime(unsigned n){
-	for(int i = 2;;i++){
-	    if(checkPrime(i))
-	        n--;
-	        if(!n)
-	            return i;
-	}
 }
 
-unsigned long long nextPrime(unsigned long long value){
-	unsigned long long new_value = value + 1;
-	while(1){
-		if (checkPrime(new_value) == 1)
-			return new_value;
-		new_value++;
+
+unsigned long long nPrime(unsigned n)
+{
+	int i = 0;
+	int count = 0;
+	while (count != n) {
+		if (checkPrime(i)) {
+			count++;
+		}
+		i++;
 	}
+	i--;
+	return i;
 }
+
+
+unsigned long long nextPrime(unsigned long long value) {
+	int n = 1;
+	value++;
+	while (n != 0) {
+		if (checkPrime(value)) {
+			n--;
+		}
+		value++;
+	}
+	value--;
+	return value;
+} 

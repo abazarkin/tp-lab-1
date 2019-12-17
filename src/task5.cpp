@@ -1,23 +1,31 @@
 #include "task5.h"
 
-
-void split(char ***result, int *N, char *buf, char ch){
-	*N = 1;
-	int len = strlen(buf);
-	for(int i = 0; i < len; i++)
-		if(*(buf + i) == ch)
-			*N += 1;
-	*result = (char**)malloc(*N * sizeof(char*));
-	int i = 0;
-	for(int j = 0; j < *N; j++){
-		int tmplen = 0;
-		while((*(buf + 1) != 0) && (*(buf + 1) != ch)){
-			i++;
-			tmplen++;
+void split(char*** result, int* N, char* buf, char ch) {
+	*N = 0;
+	int i = 0, num = 0;
+	while (*(buf + i) != '\0') {
+		if (*(buf + i) == ch) {
+			num++;
 		}
-		*(*result + j) = (char*)malloc((tmplen + 1) * sizeof(char));
-		strncpy(*(*result + j), buf + i - tmplen, tmplen);
-		*(*(*result + j) + tmplen) = 0;
+		i++;
+	}
+	i = 0;
+	*N = num + 1;
+	*result = new char* [num + 1];
+	int dop = num + 1;
+	for (int j = 0; j < dop; j++) {
+		num = 0;
+		while (*(buf + i) != '\0' && *(buf + i) != ch) {
+			i++;
+			num++;
+		}
+
+
+		*(*result + j) = new char[num + 1];
+		*(*(*result + j) + num) = '\0';
+		for (int k = 0; k < num; k++) {
+			*(*(*result + j) + k) = *(buf + i - num + k);
+		}
 		i++;
 	}
 } 
