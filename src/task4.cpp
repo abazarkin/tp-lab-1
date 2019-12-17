@@ -17,7 +17,7 @@ char *sum(char *x, char *y){
 		if(i <= len_y)
 			summ += (*(y + (len_y - i)) - '0');
 		*(sum + len + 1 - i) = summ % 10 + '0';
-		s /= 10;
+		summ = summ / 10;
 	}
 	*(sum + len + 1) = 0;
 	if(*(sum) == '0')
