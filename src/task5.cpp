@@ -1,6 +1,6 @@
 #include "task5.h"
 
-
+//
 void split(char ***result, int *N, char *buf, char ch){
 	*N = 1;
 	int len = strlen(buf);
